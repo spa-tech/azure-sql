@@ -11,23 +11,23 @@ terraform {
 provider "azurerm" {
   features {}
 }
-resource "azurerm_resource_group" "example" {
+resource "azurerm_resource_group" "azure_sql" {
   name     = "azure-sql-terraform"
   location = "East US 2"
 }
 
-resource "azurerm_mssql_server" "example" {
+resource "azurerm_mssql_server" "server1" {
   name                         = "mssqlserver"
-  resource_group_name          = azurerm_resource_group.example.name
-  location                     = azurerm_resource_group.example.location
+  resource_group_name          = azurerm_resource_group.azure_sql.name
+  location                     = azurerm_resource_group.azure_sql.location
   version                      = "12.0"
   administrator_login          = "missadministrator"
   administrator_login_password = "thisIsKat11"
   minimum_tls_version          = "1.2"
 
   azuread_administrator {
-    login_username = "AzureAD Admin"
-    object_id      = "00000000-0000-0000-0000-000000000000"
+    login_username = "jaspangler"
+    object_id      = "57a280ce-45bd-4d44-84c0-c731c5194dbf"
   }
 
   tags = {
