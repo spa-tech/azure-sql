@@ -11,7 +11,7 @@ terraform {
 provider "azurerm" {
   features {}
 }
-resource "azurerm_resource_group" "azure_sql_terraform" {
+resource "azurerm_resource_group" "azure_sql" {
   name     = "azure-sql-terraform"
   location = "East US 2"
 }
