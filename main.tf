@@ -17,7 +17,7 @@ resource "azurerm_resource_group" "azure_sql" {
 }
 
 resource "azurerm_mssql_server" "server1" {
-  name                         = "mssqlserver"
+  name                         = "stmssqlserver1"
   resource_group_name          = azurerm_resource_group.azure_sql.name
   location                     = azurerm_resource_group.azure_sql.location
   version                      = "12.0"
