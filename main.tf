@@ -17,12 +17,12 @@ resource "azurerm_resource_group" "azure_sql" {
 }
 
 resource "azurerm_mssql_server" "server1" {
-  name                         = "stmssqlserver1"
+  name                         = var.mssql_server_name
   resource_group_name          = azurerm_resource_group.azure_sql.name
   location                     = azurerm_resource_group.azure_sql.location
   version                      = "12.0"
-  administrator_login          = "missadministrator"
-  administrator_login_password = "thisIsKat11"
+  administrator_login          = var.admin_login_username
+  administrator_login_password = var.admin_login_password
   minimum_tls_version          = "1.2"
 
   azuread_administrator {
@@ -37,8 +37,8 @@ resource "azurerm_mssql_server" "server1" {
 resource "azurerm_mssql_firewall_rule" "example" {
   name             = "FirewallRule1"
   server_id        = azurerm_mssql_server.server1.id
-  start_ip_address = "75.97.192.54"
-  end_ip_address   = "75.97.192.54"
+  start_ip_address = var.mssql_firewall_rule_start_ip
+  end_ip_address   = var.mssql_firewall_rule_end_ip
 }
 resource "azurerm_mssql_database" "emaildb" {
   name                        = "emaildb"
