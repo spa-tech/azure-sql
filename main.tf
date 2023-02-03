@@ -34,6 +34,12 @@ resource "azurerm_mssql_server" "server1" {
     environment = "production"
   }
 }
+resource "azurerm_mssql_firewall_rule" "example" {
+  name             = "FirewallRule1"
+  server_id        = azurerm_mssql_server.server1.id
+  start_ip_address = "10.0.17.62"
+  end_ip_address   = "10.0.17.62"
+}
 resource "azurerm_mssql_database" "emaildb" {
   name                        = "emaildb"
   server_id                   = azurerm_mssql_server.server1.id
