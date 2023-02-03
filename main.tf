@@ -39,5 +39,5 @@ resource "azurerm_mssql_database" "emaildb" {
   server_id                   = azurerm_mssql_server.server1.id
   sku_name                    = "GP_S_Gen5_1"
   min_capacity                = "0.5"
-  auto_pause_delay_in_minutes = "15"
+  auto_pause_delay_in_minutes = "60"
 }
