@@ -37,8 +37,8 @@ resource "azurerm_mssql_server" "server1" {
 resource "azurerm_mssql_firewall_rule" "example" {
   name             = "FirewallRule1"
   server_id        = azurerm_mssql_server.server1.id
-  start_ip_address = "10.0.17.62"
-  end_ip_address   = "10.0.17.62"
+  start_ip_address = "75.97.192.54"
+  end_ip_address   = "75.97.192.54"
 }
 resource "azurerm_mssql_database" "emaildb" {
   name                        = "emaildb"
