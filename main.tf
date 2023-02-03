@@ -26,8 +26,8 @@ resource "azurerm_mssql_server" "server1" {
   minimum_tls_version          = "1.2"
 
   azuread_administrator {
-    login_username = "jaspangler@spanglab.com"
-    object_id      = "57a280ce-45bd-4d44-84c0-c731c5194dbf"
+    login_username = var.azuread_admin_login_username
+    object_id      = var.azuread_admin_login_object_id
   }
 
   tags = {
