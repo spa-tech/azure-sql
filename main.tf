@@ -37,5 +37,5 @@ resource "azurerm_mssql_server" "server1" {
 resource "azurerm_mssql_database" "emaildb" {
   name           = "emaildb"
   server_id      = azurerm_mssql_server.server1.id
-  sku_name       = "GP_S_Gen5_1"
+  sku_name       = "S0"
 }
